@@ -22,8 +22,10 @@ include("auth_session.php");
         //escapes special characters in a string
         $comment = mysqli_real_escape_string($con, $comment);
         $create_datetime = date("Y-m-d H:i:s");
-        $query    = "INSERT INTO `comments` (comment, create_datetime)
-                     VALUES ('$comment',  '$create_datetime')";
+        $username = $_SESSION['username'];
+        
+        $query    = "INSERT INTO `comments` (comment, create_datetime, username)
+                     VALUES ('$comment',  '$create_datetime', $username)";
         $result   = mysqli_query($con, $query);
         if ($result) {
             echo "<div class='form'>
