@@ -16,7 +16,7 @@ include("auth_session.php");
         <?php
     require('db.php');
     // When form submitted, insert values into the database.
-    if (isset($_REQUEST['username'])) {
+    if (isset($_REQUEST['submit'])) {
         // removes backslashes
         $comment = stripslashes($_REQUEST['comment']);
         //escapes special characters in a string
